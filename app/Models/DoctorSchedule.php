@@ -16,7 +16,8 @@ class DoctorSchedule extends Model
         'end_time',
     ];
 
-    public function doctor(){
+    public function doctor()
+    {
         return $this->belongsTo(Doctor::class);
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             // doctor_phone
             $table->string('doctor_phone');
             // doctor_email
-            $table->string('doctor_email'); 
+            $table->string('doctor_email');
             // photo
             $table->string('photo')->nullable();
             // address

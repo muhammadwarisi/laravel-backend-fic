@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Carbon\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\DoctorSchedule;
 
 class DoctorScheduleSeeder extends Seeder
 {
@@ -21,8 +22,8 @@ class DoctorScheduleSeeder extends Seeder
         ]);
 
         // Auto Generate Doctor Schedule
-        \App\Models\Doctor::all()->each(function ($doctor){
-                \App\Models\DoctorSchedule::factory()->count(10)->create([
+        \App\Models\Doctor::all()->each(function ($doctor) {
+                \App\Models\DoctorSchedule::factory()->count(3)->create([
                     'doctor_id' => $doctor->id
                 ]);
         });

@@ -59,6 +59,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
+                                            <th>Address</th>
                                             <th>Specialist</th>
                                             <th>Photo</th>
                                             <th>Action</th>
@@ -75,11 +76,14 @@
                                                     {{ $doctor->doctor_phone }}
                                                 </td>
                                                 <td>
+                                                    {{ $doctor->address }}
+                                                </td>
+                                                <td>
                                                     {{ $doctor->doctor_specialist }}
                                                 </td>
                                                 <td>
                                                     @if ($doctor->photo)
-                                                        <img src="{{asset(''. $doctor->photo)}}" width="100px" alt="" class="img-thumbnail">
+                                                        <img src="{{asset('' . $doctor->photo)}}" width="100px" alt="" class="img-thumbnail">
                                                         @else
                                                         <span class="badge badge-banner">No Image</span>
                                                     @endif

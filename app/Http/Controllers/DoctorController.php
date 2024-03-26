@@ -43,40 +43,44 @@ class DoctorController extends Controller
 
         ]);
 
-        // $doctor = DB::table('doctors')->insert([
-        //     'doctor_name' => $request->doctor_name,
-        //     'doctor_specialist' => $request->doctor_specialist,
-        //     'doctor_phone' => $request->doctor_phone,
-        //     'doctor_email' => $request->doctor_email,
-        //     'sip' => $request->sip,
-        // ]);
+        $doctor = DB::table('doctors')->insert([
+            'doctor_name' => $request->doctor_name,
+            'doctor_specialist' => $request->doctor_specialist,
+            'doctor_phone' => $request->doctor_phone,
+            'doctor_email' => $request->doctor_email,
+            'sip' => $request->sip,
+            'address' => $request->address,
+            'id_ihs' => $request->id_ihs,
+            'nik' => $request->nik,
+        ]);
 
-        $doctor= new Doctor;
-        $doctor->doctor_name = $request->doctor_name;
-        $doctor->doctor_specialist = $request->doctor_specialist;
-        $doctor->doctor_phone = $request->doctor_phone;
-        $doctor->doctor_email = $request->doctor_email;
-        $doctor->sip = $request->sip;
-        $doctor->id_ihs = $request->id_ihs;
-        $doctor->nik = $request->nik;
-        $doctor->save();
+        // $doctor= new Doctor;
+        // $doctor->doctor_name = $request->doctor_name;
+        // $doctor->doctor_specialist = $request->doctor_specialist;
+        // $doctor->doctor_phone = $request->doctor_phone;
+        // $doctor->doctor_email = $request->doctor_email;
+        // $doctor->address = $request->address;
+        // $doctor->sip = $request->sip;
+        // $doctor->id_ihs = $request->id_ihs;
+        // $doctor->nik = $request->nik;
+        // $doctor->save();
 
         // if image exist
-        // if ($request->file('photo')) {
-        //     $photo = $request->file('photo');
-        //     $photo_name = time().'.'.$photo->extension();
-        //     $photo->move(public_path('images'), $photo_name);
-        //     DB::table('doctors')->where('id',DB::getPdo()->lastInsertId())->update([
-        //         'photo' => $photo_name
-        //     ]);
-        // }
-
-        if ($request->hasFile('photo')) {
-            $image = $request->file('photo');
-            $image->storeAs('public/doctors', $doctor->id .'.'. $image->getClientOriginalExtension());
-            $doctor->photo = 'storage/doctors/'. $doctor->id .'.'. $image->getClientOriginalExtension();
-            $doctor->save();
+        if ($request->file('photo')) {
+            $photo = $request->file('photo');
+            $photo_name = time().'.'.$photo->extension();
+            $photo->move(public_path('images'), $photo_name);
+            DB::table('doctors')->where('id',DB::getPdo()->lastInsertId())->update([
+                'photo' => $photo_name
+            ]);
         }
+
+        // if ($request->hasFile('photo')) {
+        //     $image = $request->file('photo');
+        //     $image->storeAs('public/doctors', $doctor->id .'.'. $image->getClientOriginalExtension());
+        //     $doctor->photo = 'storage/doctors/'. $doctor->id .'.'. $image->getClientOriginalExtension();
+        //     $doctor->save();
+        // }
 
 
         return redirect()->route('doctors.index')->with('success', 'Doctor created Successfully');
