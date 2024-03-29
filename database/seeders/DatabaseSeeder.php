@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         // call
         $this->call([
             DoctorSeeder::class,
-            DoctorSchedule::class,
+            DoctorScheduleSeeder::class,
         ]);
     }
 }

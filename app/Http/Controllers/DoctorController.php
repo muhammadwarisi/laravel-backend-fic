@@ -37,6 +37,8 @@ class DoctorController extends Controller
             'doctor_specialist' => 'required',
             'doctor_phone' => 'required',
             'doctor_email' => 'required',
+            'address'=> 'required',
+            'photo' => 'required',
             'sip' => 'required',
             'id_ihs' => 'required',
             'nik' => 'required',
@@ -53,6 +55,7 @@ class DoctorController extends Controller
             'id_ihs' => $request->id_ihs,
             'nik' => $request->nik,
         ]);
+
 
         // $doctor= new Doctor;
         // $doctor->doctor_name = $request->doctor_name;
@@ -81,7 +84,6 @@ class DoctorController extends Controller
         //     $doctor->photo = 'storage/doctors/'. $doctor->id .'.'. $image->getClientOriginalExtension();
         //     $doctor->save();
         // }
-
 
         return redirect()->route('doctors.index')->with('success', 'Doctor created Successfully');
     }

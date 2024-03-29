@@ -17,9 +17,9 @@ class DoctorScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'doctor_id' =>\App\Models\Doctor::factory(),
+            'doctor_id' => \App\Models\Doctor::factory(),
             // day
-            'day' => $this->randomElement(['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']),
+            'day' => $this->faker->randomElement(['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']),
             'time' => $this->faker->word,
             'status' => $this->faker->word,
             'note' => $this->faker->word,
