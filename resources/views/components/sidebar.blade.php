@@ -16,19 +16,24 @@
                         <a class="nav-link"
                             href="{{ url('dashboard-general-dashboard') }}">General Dashboard</a>
                     </li>
+                    <li class=''>
+                        <a class="nav-link"
+                            href="{{ route('users.index') }}">Users</a>
+                    </li>
+                    <li class=''>
+                        <a class="nav-link"
+                            href="{{ route('doctors.index') }}">Doctors</a>
+                    </li>
+                    <li class=''>
+                        <a class="nav-link"
+                            href="{{ route('doctor-schedules.index') }}">Doctors Schedules</a>
+                    </li>
+                    <li class=''>
+                        <a class="nav-link"
+                            href="{{ route('patients.index') }}">Patients</a>
+                    </li>
                 </ul>
-                <li class=''>
-                    <a class="nav-link"
-                        href="{{ route('users.index') }}">Users</a>
-                </li>
-                <li class=''>
-                    <a class="nav-link"
-                        href="{{ route('doctors.index') }}">Doctors</a>
-                </li>
-                <li class=''>
-                    <a class="nav-link"
-                        href="{{ route('doctor-schedules.index') }}">Doctors Schedules</a>
-                </li>
+
             </li>
 
     </aside>

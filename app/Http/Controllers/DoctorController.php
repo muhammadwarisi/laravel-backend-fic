@@ -20,8 +20,6 @@ class DoctorController extends Controller
         })
         ->orderBy('id', 'desc')
         ->paginate(5);
-
-
         return view('pages.doctors.index', compact('doctors'));
     }
 
